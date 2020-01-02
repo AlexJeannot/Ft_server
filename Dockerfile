@@ -9,8 +9,11 @@ RUN apt-get install -y php-mysql
 RUN apt-get install -y php-mbstring
 RUN apt-get install -y openssl
 RUN apt-get install -y zip
+RUN apt-get install -y wget
 
-RUN unzip srcs/wordpress.zip var/www/
+COPY srcs/wordpress.zip var/www/
 COPY srcs/localhost etc/nginx/sites-available/
 COPY srcs/init.sql var/www/
-COPY start.sh .
+COPY srcs/start.sh .
+
+CMD bash start.sh && tail -f /dev/null
