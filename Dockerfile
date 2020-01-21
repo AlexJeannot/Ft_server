@@ -9,7 +9,6 @@ RUN apt-get install -qy php-mysql
 RUN apt-get install -qy php-mbstring
 RUN apt-get install -qy openssl
 RUN apt-get install -qy zip
-RUN apt-get install -qy wget
 RUN apt-get clean -y
 
 COPY srcs/wordpress /var/www/wordpress
